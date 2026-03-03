@@ -24,8 +24,8 @@ This project implements a traffic light controller, vehicular and pedestrian, wi
 --->
 
 <div align="center">
- 
-https://github.com/user-attachments/assets/fb6c5a24-524d-4db9-94e6-576a4c2691ae
+
+https://github.com/user-attachments/assets/ffc96954-2b37-45db-9671-6c3c5c554055
 
 </div>
 
