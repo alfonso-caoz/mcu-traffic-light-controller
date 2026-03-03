@@ -9,7 +9,7 @@ This project implements a traffic light controller, vehicular and pedestrian, wi
 ## Traffic Light Finite State Machine (FSM)
 
 <!---
-![Traffic Light FSM](/docs/html/dot_inline_dotgraph_1.png)
+![Traffic Light FSM](./docs/html/dot_inline_dotgraph_1.png)
 --->
 <p align="center">
  
@@ -20,7 +20,7 @@ This project implements a traffic light controller, vehicular and pedestrian, wi
 ## Demo with SimulIDE
 
 <!---
-[DemoTrafficLight_Google_Drive](https://drive.google.com/file/d/12pSJ2lb11Bx9yfLRGOzRFmk9PFPUq6HW/view?usp=sharing)
+[DemoTrafficLight_Google_Drive](https://drive.google.com/file/d/1l8RI79wV5eYwWoGk3cDYjdmUB5gFPZs5/view?usp=sharing)
 --->
 
 <div align="center">
