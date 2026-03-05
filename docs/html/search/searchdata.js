@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "t",
   5: "iv",
   6: "git",
-  7: "aclmptv"
+  7: "clmt"
 };
 
 var indexSectionNames =

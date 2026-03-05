@@ -5,13 +5,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MCU Traffic Light Controller: MCU Traffic Light Controller: Vehicular And Pedestrian</title>
+<title>MCU Traffic Light Controller: MCU Traffic Light Controller</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -48,6 +59,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -70,73 +97,85 @@ $(function() {
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">MCU Traffic Light Controller: Vehicular And Pedestrian </div></div>
+  <div class="headertitle"><div class="title">MCU Traffic Light Controller </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_MainPage"></a></p>
 <ul>
-<li>MCU Traffic Light Controller: Vehicular And Pedestrian<ul>
-<li>Introduction<ul>
-<li>Traffic Light Finite State Machine (FSM)</li>
-<li>Demo with SimulIDE</li>
+<li><a class="el" href="index.html#introduction">Introduction</a><ul>
+<li><a class="el" href="index.html#traffic-light-finite-state-machine-fsm">Traffic Light Finite State Machine (FSM)</a></li>
+<li><a class="el" href="index.html#demo-with-simulide">Demo with SimulIDE</a></li>
 </ul>
 </li>
-<li>Project Settings<ul>
-<li>Requirements</li>
-<li>Building Firmware</li>
-<li>Loading Firmware Into MCU ATtiny4313 - SimulIDE</li>
-<li>Executing Traffic Light Controller - SimulIDE</li>
+<li><a class="el" href="index.html#project-settings">Project Settings</a><ul>
+<li><a class="el" href="index.html#requirements">Requirements</a></li>
+<li><a class="el" href="index.html#building-firmware">Building Firmware</a></li>
+<li><a class="el" href="index.html#loading-firmware-into-mcu-attiny4313---simulide">Loading Firmware Into MCU ATtiny4313 - SimulIDE</a></li>
+<li><a class="el" href="index.html#executing-traffic-light-controller---simulide">Executing Traffic Light Controller - SimulIDE</a></li>
 </ul>
 </li>
-<li>Circuit Design with SimulIDE<ul>
-<li>List of Components</li>
-<li>MCU ATtiny4313 Datasheet</li>
-<li>MCU ATtiny4313 Pin Connections</li>
-<li>LED - Resistor</li>
-<li>Buttons - Switch Debouncing</li>
-<li>GPIO Configuration</li>
-<li>External Interrupt Configuration: INT0 - Buttons</li>
-<li>Timer Pre-scaler Configuration</li>
-<li>Internal Interrupt Configuration - Timer</li>
-</ul>
-</li>
+<li><a class="el" href="index.html#circuit-design-with-simulide">Circuit Design with SimulIDE</a><ul>
+<li><a class="el" href="index.html#list-of-components">List of Components</a></li>
+<li><a class="el" href="index.html#mcu-attiny4313-datasheet">MCU ATtiny4313 Datasheet</a></li>
+<li><a class="el" href="index.html#mcu-attiny4313-pin-connections">MCU ATtiny4313 Pin Connections</a></li>
+<li><a class="el" href="index.html#led---resistor">LED - Resistor</a></li>
+<li><a class="el" href="index.html#buttons---switch-debouncing">Buttons - Switch Debouncing</a></li>
+<li><a class="el" href="index.html#gpio-configuration">GPIO Configuration</a></li>
+<li><a class="el" href="index.html#external-interrupt-configuration-int0---buttons">External Interrupt Configuration: INT0 - Buttons</a></li>
+<li><a class="el" href="index.html#timer-pre-scaler-configuration">Timer Pre-scaler Configuration</a></li>
+<li><a class="el" href="index.html#internal-interrupt-configuration---timer">Internal Interrupt Configuration - Timer</a></li>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="introduction"></a>
 Introduction</h1>
 <p>This project implements a traffic light controller, vehicular and pedestrian, with an ATtiny4313 microcontroller programmed in C, using the open-source simulator SimulIDE in GNU/Linux, internal and external interrupts, and a Finite State Machine (FSM).</p>
 <ul>
-<li><b><a href="https://github.com/alfonso-caoz/mcu-traffic-light-controller">mcu-traffic-light-controller</a></b> - GitHub Project Repository</li>
+<li><b><a href="https://github.com/alfonso-caoz/mcu-traffic-light-controller" target="_blank">mcu-traffic-light-controller</a></b> - GitHub Project Repository</li>
 </ul>
 <blockquote class="doxtable">
 <p>&zwj;<b>Concepts and Tools:</b> ATiny4313 MCU, C, Interrupt Service Routines (ISR), FSM, Timer Pre-scalers, Switch Debouncing, CMake, Doxygen, SimulIDE, GNU/Linux, LEDs, Buttons. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="traffic-light-finite-state-machine-fsm"></a>
 Traffic Light Finite State Machine (FSM)</h2>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<div class="image">
+<img src="dot_inline_dotgraph_1.png" alt="" width="400" height="400"/>
+<div class="caption">
+Traffic Light FSM</div></div>
+<h2><a class="anchor" id="demo-with-simulide"></a>
+Demo with SimulIDE</h2>
+<p> 
+<center>
+<div class="rwd-video">
+    <iframe src="https://github.com/user-attachments/assets/ffc96954-2b37-45db-9671-6c3c5c554055" title="Demo Traffic Light" frameborder="0"
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen width=800 height=572></iframe>
+</div>
+</center>
+</p>
+<h1><a class="anchor" id="project-settings"></a>
 Project Settings</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="requirements"></a>
 Requirements</h2>
 <ul>
-<li>GNU/Linux Operating System</li>
-<li><a href="https://gcc.gnu.org/wiki/avr-gcc">AVR-GCC</a></li>
+<li>GNU/Linux Operating System (this project was developed and tested under <b>Ubuntu 24.04.4 LTS</b>)</li>
+<li><a href="https://gcc.gnu.org/wiki/avr-gcc" target="_blank">AVR-GCC</a></li>
 </ul>
-<p>In a terminal install latest <code>avr-gcc</code> (this project was developed and tested under <code>avr-gcc version 7.3.0</code>):</p>
+<p>In a terminal install latest <b>avr-gcc</b> (this project was developed and tested under <b>avr-gcc version 7.3.0</b>):</p>
 <div class="fragment"><div class="line">$ sudo apt install gcc build-essential gcc-avr binutils-avr avr-libc gdb-avr</div>
 </div><!-- fragment --><ul>
-<li><a href="https://avrdudes.github.io/avrdude/">AVR-DUDE</a></li>
+<li><a href="https://avrdudes.github.io/avrdude/" target="_blank">AVR-DUDE</a></li>
 </ul>
-<p>In a terminal install latest <code>avrdude</code> (this project was developed and tested under <code>avrdude version 7.1</code>):</p>
+<p>In a terminal install latest <b>avrdude</b> (this project was developed and tested under <b>avrdude version 7.1</b>):</p>
 <div class="fragment"><div class="line">$ sudo apt install libusb-dev avrdude</div>
 </div><!-- fragment --><ul>
-<li><a href="https://cmake.org/cmake/help/latest/index.html">CMake</a></li>
+<li><a href="https://cmake.org/cmake/help/latest/index.html" target="_blank">CMake</a></li>
 </ul>
-<p>In a terminal install latest <code>cmake</code> (this project was developed and tested under <code>cmake version 3.28.3</code>):</p>
+<p>In a terminal install latest <b>cmake</b> (this project was developed and tested under <b>cmake version 3.28.3</b>):</p>
 <div class="fragment"><div class="line">$ sudo apt install cmake</div>
 </div><!-- fragment --><ul>
-<li><a href="https://simulide.com/p/">SimulIDE</a><ul>
-<li>Download: <a href="https://simulide.com/p/download0415/">SimulIDE 0.4.15 - Linux 64</a></li>
+<li><a href="https://simulide.com/p/" target="_blank">SimulIDE</a><ul>
+<li>Download: <a href="https://simulide.com/p/download0415/" target="_blank">SimulIDE 0.4.15 - Linux 64</a></li>
 <li>In a terminal:</li>
 </ul>
 </li>
@@ -145,34 +184,34 @@ Requirements</h2>
 <div class="line">$ cd Downloads</div>
 <div class="line">$ chmod +x SimulIDE_0.4.15-SR10.AppImage</div>
 <div class="line">$ ./SimulIDE_0.4.15-SR10.AppImage               # App Execution</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h2><a class="anchor" id="building-firmware"></a>
 Building Firmware</h2>
-<p>From the project main folder <code>mcu-traffic-light-controller</code>, run the following terminal commands:</p>
+<p>From the project main folder <b>mcu-traffic-light-controller</b>, run the following terminal commands:</p>
 <div class="fragment"><div class="line">$ mkdir build</div>
 <div class="line">$ cd build</div>
 <div class="line">$ cmake ..</div>
 <div class="line">$ cmake --build .</div>
-</div><!-- fragment --><p>These last commands will create the file <code>main.hex</code> to be uploaded to the microcontroller ATtiny4313 in SimulIDE.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><p>These last commands will create the file <b>main.hex</b> to be uploaded to the microcontroller ATtiny4313 in SimulIDE.</p>
+<h2><a class="anchor" id="loading-firmware-into-mcu-attiny4313---simulide"></a>
 Loading Firmware Into MCU ATtiny4313 - SimulIDE</h2>
 <ul>
-<li>Open the SimulIDE app with double click on the file <code>SimulIDE_0.4.15-SR10.AppImage</code>.</li>
-<li>Click on <code>Open Circuit</code> (<code>Ctrl + O</code>), go to folder <code>simulation</code>, and load the circuit <code>traffic_light_circuit.simu</code>.</li>
-<li>Right-click on MCU <code>ATtiny4313</code>, click on <code>Load firmware</code>, go to folder <code>build</code>, and select file <code>main.hex</code>.</li>
+<li>Open the SimulIDE app with double click on the file <b>SimulIDE_0.4.15-SR10.AppImage</b>.</li>
+<li>Click on <b>Open Circuit</b> (<b>Ctrl + O</b>), go to folder <b>simulation</b>, and load the circuit <b>traffic_light_circuit.simu</b>.</li>
+<li>Right-click on MCU <b>ATtiny4313</b>, click on <b>Load firmware</b>, go to folder <b>build</b>, and select file <b>main.hex</b>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="executing-traffic-light-controller---simulide"></a>
 Executing Traffic Light Controller - SimulIDE</h2>
 <ul>
-<li>Click on <code>Power Circuit</code>.</li>
-<li>Click on Button <code>B1</code> or <code>B2</code> to make the Traffic Light FSM transition if it has also been in that initial state ten or more seconds.</li>
+<li>Click on <b>Power Circuit</b>.</li>
+<li>Click on Button <b>B1</b> or <b>B2</b> to make the Traffic Light FSM transition if it has also been in that initial state ten or more seconds.</li>
 <li>You can check electrical variables in different circuit points.</li>
-<li>You can also click on <code>Pause Simulation</code> or stop it by clicking on <code>Power Circuit</code> again.</li>
+<li>You can also click on <b>Pause Simulation</b> or stop it by clicking on <b>Power Circuit</b> again.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="circuit-design-with-simulide"></a>
 Circuit Design with SimulIDE</h1>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="list-of-components"></a>
 List of Components</h2>
-<table class="markdownTable">
+<center></center><center><table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Quantity   </th><th class="markdownTableHeadLeft">Component    </th></tr>
 <tr class="markdownTableRowOdd">
@@ -182,97 +221,100 @@ List of Components</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyLeft">Green LED    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">4   </td><td class="markdownTableBodyLeft">100 $\Omega$ Resistor    </td></tr>
+<td class="markdownTableBodyCenter">4   </td><td class="markdownTableBodyLeft">100 \(\Omega\) Resistor    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyLeft">140 $\Omega$ Resistor    </td></tr>
+<td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyLeft">140 \(\Omega\) Resistor    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyLeft">1000 $\Omega$ Resistor    </td></tr>
+<td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyLeft">1000 \(\Omega\) Resistor    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyLeft">1 $\mu$F Capacitor    </td></tr>
+<td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyLeft">1 \(\mu\)F Capacitor    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyLeft">Button   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md11"></a>
+</center><center></center><h2><a class="anchor" id="mcu-attiny4313-datasheet"></a>
 MCU ATtiny4313 Datasheet</h2>
-<p>See all MCU technical characteristics in <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/doc8246.pdf">ATtiny4313 Datasheet</a>.</p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<p>See all MCU technical characteristics in <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/doc8246.pdf" target="_blank">ATtiny4313 Datasheet</a>.</p>
+<h2><a class="anchor" id="mcu-attiny4313-pin-connections"></a>
 MCU ATtiny4313 Pin Connections</h2>
-<table class="markdownTable">
+<center></center><center><table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Pin   </th><th class="markdownTableHeadCenter">Mode   </th><th class="markdownTableHeadLeft">Component    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><code>PB1</code>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LEDs: <code>LEDPR</code> || <code>LEDPR</code>    </td></tr>
+<td class="markdownTableBodyCenter"><b>PB1</b>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LEDs: <b>LEDPR</b> || <b>LEDPR</b>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><code>PB2</code>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LEDs: <code>LEDPG</code> || <code>LEDPG</code>    </td></tr>
+<td class="markdownTableBodyCenter"><b>PB2</b>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LEDs: <b>LEDPG</b> || <b>LEDPG</b>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><code>PB3</code>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LED: <code>LEDVR</code>    </td></tr>
+<td class="markdownTableBodyCenter"><b>PB3</b>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LED: <b>LEDVR</b>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><code>PB4</code>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LED: <code>LEDVG</code>    </td></tr>
+<td class="markdownTableBodyCenter"><b>PB4</b>   </td><td class="markdownTableBodyCenter">Output   </td><td class="markdownTableBodyLeft">LED: <b>LEDVG</b>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><code>PD2</code> (<code>INT0</code>)   </td><td class="markdownTableBodyCenter">Input   </td><td class="markdownTableBodyLeft">Button <code>B1</code> || <code>B2</code>   </td></tr>
+<td class="markdownTableBodyCenter"><b>PD2</b> (<b>INT0</b>)   </td><td class="markdownTableBodyCenter">Input   </td><td class="markdownTableBodyLeft">Button <b>B1</b> || <b>B2</b>   </td></tr>
 </table>
-<blockquote class="doxtable">
-<p>&zwj;- <b>LEDPR:</b> LED Pedestrian Red - Two LEDs connected in parallel.</p><ul>
-<li><b>LEDPG:</b> LED Pedestrian Green - Two LEDs connected in parallel.</li>
-<li><b>LEDVR:</b> LED Vehicle Red - One LED.</li>
-<li><b>LEDVG:</b> LED Vehicle Green - One LED.</li>
-<li>**<code>B1</code> || <code>B2</code>:** Two different buttons, but connected in parallel to the same MCU pin. </li>
-</ul>
+</center><center></center><blockquote class="doxtable">
+<p>&zwj;<b>LEDPR:</b> LED Pedestrian Red - Two LEDs connected in parallel.</p>
+<p><b>LEDPG:</b> LED Pedestrian Green - Two LEDs connected in parallel.</p>
+<p><b>LEDVR:</b> LED Vehicle Red - One LED.</p>
+<p><b>LEDVG:</b> LED Vehicle Green - One LED.</p>
+<p><b>B1</b> || <b>B2:</b> Two different buttons, but connected in parallel to the same MCU pin. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="led---resistor"></a>
 LED - Resistor</h2>
-<p>Theoretically the <code>MCU output voltage = 5 V</code>. All LEDs in this circuit have a theoretical <code>forward voltage = 2.4 V</code>, and a theoretical **<code>maximum forward current = 30 mA</code>**.</p>
+<p>Theoretically the <b>MCU output voltage = 5 V</b>. All LEDs in this circuit have a theoretical <b>forward voltage = 2.4 V</b>, and a theoretical <b>maximum forward current = 30 mA</b>.</p>
 <ul>
-<li><b>Single LEDs:</b> with a **R = 140 $\Omega$**, we have a safe theoretical LED forward current:</li>
+<li><b>Single LEDs:</b> with a <b>R = 140</b> \(\boldsymbol{\Omega}\), we have a safe theoretical LED forward current:</li>
 </ul>
 <p>$$ I_{1-Single-LED}=\frac{5\ V - 2.4\ V}{140\ \Omega}=18.57\ mA $$</p>
 <ul>
-<li><b>Parallel LEDs:</b> with a **R = 100 $\Omega$**, we have a safe theoretical LED forward current:</li>
+<li><b>Parallel LEDs:</b> with a <b>R = 100</b> \(\boldsymbol{\Omega}\), we have a safe theoretical LED forward current:</li>
 </ul>
 <p>$$ I_{1-Parallel-LED}=\left(\frac{5\ V - 2.4\ V}{100\ \Omega}\right)\cdot \frac{1}{2}=13\ mA $$</p>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="buttons---switch-debouncing"></a>
 Buttons - Switch Debouncing</h2>
 <ul>
-<li><b>Buttons:</b> Buttons are set with a pull-up resistor of 1000 $\Omega$ to keep them always in a HIGH state (5 V). This way the external interruption (<code>INT0</code>) is LOW activated (0 V) when the buttons are pressed. Buttons <code>B1</code> and <code>B2</code> are connected in parallel to use just one MCU pin.</li>
+<li><b>Buttons:</b> Buttons are set with a pull-up resistor of 1000 \(\Omega\) to keep them always in a HIGH state (5 V). This way the external interruption (<b>INT0</b>) is LOW activated (0 V) when the buttons are pressed. Buttons <b>B1</b> and <b>B2</b> are connected in parallel to use just one MCU pin.</li>
 <li><p class="startli"><b>Switch Debouncing:</b> Switch bouncing is the effect where erratic electrical signals are detected when the mechanical switch bounces, generally within a range of 1 ms. Despite this circuit is implemented in a simulated environment, it is part of a good design to include this effect in case of implementing it with physical elements.</p>
-<p class="startli">Switch Debouncing is achieved with a RC configuration to delay the electrical signal by the mentioned 1 ms range. We already have a **R = 1000 $\Omega$**, therefore **C = 1 $\mu$F**:</p>
+<p class="startli">Switch Debouncing is achieved with a RC configuration to delay the electrical signal by the mentioned 1 ms range. We already have a <b>R = 1000</b> \(\boldsymbol{\Omega}\), therefore <b>C = 1</b> \(\boldsymbol{\mu}\textbf{F}\):</p>
 </li>
 </ul>
-<p>$$ R\cdot C = 1\ \text{ms}\</p>
-<p>C = \frac{1\ \text{ms}}{R} = \frac{1\ \text{ms}}{1000\ \Omega} = 1\ \mu F $$</p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<p>$$ R\cdot C = 1\ \text{ms} $$</p>
+<p>$$ <br  />
+ C = \frac{1\ \text{ms}}{R} = \frac{1\ \text{ms}}{1000\ \Omega} = 1\ \mu \text{F} $$</p>
+<h2><a class="anchor" id="gpio-configuration"></a>
 GPIO Configuration</h2>
 <ul>
-<li><code>DDRB = 0x1E</code> - These pins are set as outputs <code>PB1</code>, <code>PB2</code>, <code>PB3</code>, <code>PB4</code> (<code>LEDPR</code>, <code>LEDPG</code>, <code>LEDVR</code>, <code>LEDVG</code>, respectively).</li>
-<li><code>PORTB = 0x00</code> - Previous LED outputs are initialized as LOW (0 V).</li>
+<li><b>DDRB = 0x1E</b> - These pins are set as outputs <b>PB1</b>, <b>PB2</b>, <b>PB3</b>, <b>PB4</b> (<b>LEDPR</b>, <b>LEDPG</b>, <b>LEDVR</b>, <b>LEDVG</b>, respectively).</li>
+<li><b>PORTB = 0x00</b> - Previous LED outputs are initialized as LOW (0 V).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="external-interrupt-configuration-int0---buttons"></a>
 External Interrupt Configuration: INT0 - Buttons</h2>
 <ul>
-<li><code>GIMSK |= (1 « INT0 )</code> - External interrupt <code>INT0</code> is enabled.</li>
-<li><code>MCUCR = 0x0000</code> - External interrupt <code>INT0</code> is set as LOW activated (0 V).</li>
+<li><b>GIMSK |= (1 « INT0 )</b> - External interrupt <b>INT0</b> is enabled.</li>
+<li><b>MCUCR = 0x0000</b> - External interrupt <b>INT0</b> is set as LOW activated (0 V).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="timer-pre-scaler-configuration"></a>
 Timer Pre-scaler Configuration</h2>
 <ul>
-<li><code>TCCR0B |= 0x05</code> - Original clock frequency <code>Clko = 1 MHz</code> is decreased 1024 times. Getting a new period of <code>T = 1.024 ms</code>:</li>
+<li><b>TCCR0B |= 0x05</b> - Original clock frequency <b>Clko = 1 MHz</b> is decreased 1024 times. Getting a new period of <b>T = 1.024 ms</b>:</li>
 </ul>
-<p>$$ T = \left( \frac{Clko}{1024} \right)^{-1}=\left( \frac{1\ MHz}{1024} \right)^{-1}=1.024\ ms $$</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<p>$$ T = \left( \frac{Clko}{1024} \right)^{-1}=\left( \frac{1\ \text{MHz}}{1024} \right)^{-1}=1.024\ \text{ms} $$</p>
+<h2><a class="anchor" id="internal-interrupt-configuration---timer"></a>
 Internal Interrupt Configuration - Timer</h2>
 <ul>
-<li><code>OCR0A = 244</code> - This sets time interrupts every 0.250 s. Calculated as:</li>
+<li><b>OCR0A = 244</b> - This sets time interrupts every 0.250 s. Calculated as:</li>
 </ul>
 <p>$$ x = \frac{0.250\ s}{T}=\frac{0.250\ s}{1.024\ ms}= 244.14 \approx 244 $$</p>
 <ul>
-<li><code>TCCR0A |= 0x00</code> - Set to 0 to avoid pin <code>OC0A</code> (<code>PB2</code>) being set to HIGH after every time interrupt. This is the default configuration.</li>
-<li><code>TIMSK |= 0x01</code> - Set to 1 to make the time interrupt work by comparison (0.250 s), not by overflow. </li>
+<li><b>TCCR0A |= 0x00</b> - Set to 0 to avoid pin <b>OC0A</b> (<b>PB2</b>) being set to HIGH after every time interrupt. This is the default configuration.</li>
+<li><b>TIMSK |= 0x01</b> - Set to 1 to make the time interrupt work by comparison (0.250 s), not by overflow. </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

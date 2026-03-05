@@ -1,0 +1,6 @@
+var group__TIME__INTERRUPT__GROUP =
+[
+    [ "SECONDS", "group__TIME__INTERRUPT__GROUP.html#gadd77629355716b3885bd847e521ec9e3", null ],
+    [ "TICK_PERIOD_IN_SECONDS", "group__TIME__INTERRUPT__GROUP.html#ga8e7c122335b1395b37b7115df07ac824", null ],
+    [ "TICKS_PER_SECOND", "group__TIME__INTERRUPT__GROUP.html#ga3dd7b7d41c220904632461a2d95d61cf", null ]
+];

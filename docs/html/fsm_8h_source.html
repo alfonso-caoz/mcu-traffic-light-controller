@@ -9,9 +9,20 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -52,6 +63,23 @@ $(function() {
 $(document).ready(function() { init_codefold(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('fsm_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -73,38 +101,82 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_98ff7954eb3842da01d2ae02361edfa5.html">app</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">fsm.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="fsm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="fsm_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file fsm.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @author Alfonso Castillo Orozco</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * @brief Traffic Light Finite State Machine - Declarations</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @version 1.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @date 2026-02-19</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @copyright Copyright (c) 2026</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef FSM_H</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define FSM_H</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stdint.h&gt;</span>  <span class="comment">// uint8_t type</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span> <span class="comment">// bool type</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * @defgroup TIME_INTERRUPT_GROUP Time Interrupt Group</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * @brief A group to manage the time interrupts.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @{</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"></span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/** @brief After the Prescaler and Internal Interrupt setup, this interrupt period was set to 250 ms = 0.250 s. */</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="group__TIME__INTERRUPT__GROUP.html#ga8e7c122335b1395b37b7115df07ac824">   27</a></span><span class="preprocessor">#define TICK_PERIOD_IN_SECONDS 0.250 </span><span class="comment">// Prescaler reaching a period of 0.249856 seconds (OCR0A = 244)</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"></span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/** @brief Calculates how many ticks are counted in one second at a determined period. */</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="group__TIME__INTERRUPT__GROUP.html#ga3dd7b7d41c220904632461a2d95d61cf">   30</a></span><span class="preprocessor">#define TICKS_PER_SECOND (1/TICK_PERIOD_IN_SECONDS)</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/** @brief Sets the expected time frame in seconds, instead of number of ticks. Example: 1 s, instead of 4 ticks. */</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="group__TIME__INTERRUPT__GROUP.html#gadd77629355716b3885bd847e521ec9e3">   33</a></span><span class="preprocessor">#define SECONDS(x) (uint8_t)((x) * TICKS_PER_SECOND)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
- <span class="comment">// Group Documentation Ends</span><div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/** @} */</span> <span class="comment">// Group Documentation Ends</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * @brief Enumeration of all Traffic Light States</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * @dot</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * digraph Traffic_Light_FSM {</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> *     </span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> *     rankdir=UD; // Graph Orientation: Up to Down</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *     </span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> *     // Defining States</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> *     IDLE_VEHICLE_GREEN_PEDESTRIAN_RED        [shape=box, style=&quot;filled&quot;, color=darkgreen];</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> *     VEHICLE_FLASHING_GREEN_PEDESTRIAN_RED    [shape=box, style=&quot;filled&quot;, color=lightgreen];</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_RED               [shape=box, style=&quot;filled&quot;, color=red];</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_GREEN             [shape=box, style=&quot;filled&quot;, color=darkgreen];</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_FLASHING_GREEN    [shape=box, style=&quot;filled&quot;, color=lightgreen];</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> *     </span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> *     </span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *     // Defining State Transitions and Labels</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> *     IDLE_VEHICLE_GREEN_PEDESTRIAN_RED -&gt; VEHICLE_FLASHING_GREEN_PEDESTRIAN_RED   [label=&quot;Button Pressed + Time &gt;= 10 s&quot;];</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> *     VEHICLE_FLASHING_GREEN_PEDESTRIAN_RED -&gt; VEHICLE_RED_PEDESTRIAN_RED          [label=&quot;Time = 3 s&quot;];</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_RED -&gt; VEHICLE_RED_PEDESTRIAN_GREEN                   [label=&quot;Time = 1 s&quot;];</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_GREEN -&gt; VEHICLE_RED_PEDESTRIAN_FLASHING_GREEN        [label=&quot;Time = 10 s&quot;];</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_FLASHING_GREEN -&gt; VEHICLE_RED_PEDESTRIAN_RED          [label=&quot;Time = 3 s&quot;];</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> *     VEHICLE_RED_PEDESTRIAN_RED -&gt; IDLE_VEHICLE_GREEN_PEDESTRIAN_RED              [label=&quot;Time = 1 s&quot;];</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * } </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * @enddot</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * @details This diagram illustrates the states and transitions for the Traffic Light FSM.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">   66</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a257e2751b2017e1e655d2cb9ea96a583">   67</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a257e2751b2017e1e655d2cb9ea96a583">IDLE_VEHICLE_GREEN_PEDESTRIAN_RED</a>,      </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a8da4f839b49116a03c8639ebd1205d58">   68</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a8da4f839b49116a03c8639ebd1205d58">VEHICLE_FLASHING_GREEN_PEDESTRIAN_RED</a>,  </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811af096ad4c7b27a29b0ce8e827493adfc5">   69</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811af096ad4c7b27a29b0ce8e827493adfc5">VEHICLE_RED_PEDESTRIAN_RED</a>,             </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a3cb97bb46185a7ffe5db077df43f1963">   70</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a3cb97bb46185a7ffe5db077df43f1963">VEHICLE_RED_PEDESTRIAN_GREEN</a>,           </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a333203d01d5aa6ac4b0f9667284f6265">VEHICLE_RED_PEDESTRIAN_FLASHING_GREEN</a>   </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a257e2751b2017e1e655d2cb9ea96a583">   67</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a257e2751b2017e1e655d2cb9ea96a583">IDLE_VEHICLE_GREEN_PEDESTRIAN_RED</a>,      <span class="comment">///&lt; State 0: Idle State waiting for an Interruption. Vehicle has a green light, and Pedestrian a red light. Commute: Button B1/B2 pressed &amp; Time &gt;= 10 s.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a8da4f839b49116a03c8639ebd1205d58">   68</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a8da4f839b49116a03c8639ebd1205d58">VEHICLE_FLASHING_GREEN_PEDESTRIAN_RED</a>,  <span class="comment">///&lt; State 1: Vehicle has a flashing green light, and Pedestrian a red light. Commute: Time = 3 s. Flashing every 0.5 s.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811af096ad4c7b27a29b0ce8e827493adfc5">   69</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811af096ad4c7b27a29b0ce8e827493adfc5">VEHICLE_RED_PEDESTRIAN_RED</a>,             <span class="comment">///&lt; State 2: Vehicle and Pedestrian have red lights. Commute: Time = 1 s.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a3cb97bb46185a7ffe5db077df43f1963">   70</a></span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a3cb97bb46185a7ffe5db077df43f1963">VEHICLE_RED_PEDESTRIAN_GREEN</a>,           <span class="comment">///&lt; State 3: Vehicle has a red light, and Pedestrian a green light. Commute: Time = 10 s.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_enumvalue" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a333203d01d5aa6ac4b0f9667284f6265">VEHICLE_RED_PEDESTRIAN_FLASHING_GREEN</a>   <span class="comment">///&lt; State 4: Vehicle has a red light, and Pedestrian a flashing green light. Commute: Time = 3 s. Flashing every 0.5 s.</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811a333203d01d5aa6ac4b0f9667284f6265">   72</a></span>} <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a>;</div>
 </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
@@ -115,18 +187,32 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">                They are also accessible from ISR (hardware).</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">    - Extern: To make them accessible as global variables for different source files (fsm.c and mcu_isr.c). </span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a> <a class="code hl_variable" href="fsm_8h.html#aa3702ccf020f83c503c88ddc9f93f51d">current_state</a>;    </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a> <a class="code hl_variable" href="fsm_8h.html#adf5d33835fdc6d5812bf9b13ad8a18d4">previous_state</a>;   </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="fsm_8h.html#a58265ca174e583e748ef518f9a9e94ab">pressed_button</a>;                </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint8_t <a class="code hl_variable" href="fsm_8h.html#a3eec456e53a20db6b8309cff1d063c10">tick_counter</a>;               </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a> <a class="code hl_variable" href="fsm_8h.html#aa3702ccf020f83c503c88ddc9f93f51d">current_state</a>;    <span class="comment">///&lt; Global variable: Current State of FSM.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a> <a class="code hl_variable" href="fsm_8h.html#adf5d33835fdc6d5812bf9b13ad8a18d4">previous_state</a>;   <span class="comment">///&lt; Global variable: Previous State of FSM.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> <a class="code hl_variable" href="fsm_8h.html#a58265ca174e583e748ef518f9a9e94ab">pressed_button</a>;                <span class="comment">///&lt; Global variable: Button B1/B2 State (External Interrupt).</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint8_t <a class="code hl_variable" href="fsm_8h.html#a3eec456e53a20db6b8309cff1d063c10">tick_counter</a>;               <span class="comment">///&lt; Global variable: Tick Counter (Internal Interrupt: Timer).</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"></span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * @brief Function: Traffic Light FSM Next State</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> * This function sets the global variables for the next state, it makes the FSM commute.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * @param[in] current_state_param Sets the next value (next FSM state) for global variable @ref current_state.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * @param[in] previous_state_param Sets the next value (next FSM State) for global variable @ref previous_state.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> <a class="code hl_function" href="fsm_8h.html#a6201aa90933e18d2269f18937b202ad2">traffic_light_fsm_next_state</a>(</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>     <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a> current_state_param, </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>     <a class="code hl_enumeration" href="fsm_8h.html#a729c9ccc12f3b6c0fe51cd6be122c811">TrafficLightState</a> previous_state_param</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>);</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"></span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> * @brief Function: Traffic Light FSM Execution</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"> * This function triggers the Traffic Light State Machine, passing through all the states defined in @ref TrafficLightState.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="fsm_8h.html#a8a368ecf32638ed3c3c570d68eed0d0c">traffic_light_fsm_execution</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#endif </span><span class="comment">// FSM_H</span></div>
@@ -143,9 +229,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="afsm_8h_html_aa3702ccf020f83c503c88ddc9f93f51d"><div class="ttname"><a href="fsm_8h.html#aa3702ccf020f83c503c88ddc9f93f51d">current_state</a></div><div class="ttdeci">volatile TrafficLightState current_state</div><div class="ttdoc">Global variable: Current State of FSM.</div><div class="ttdef"><b>Definition</b> fsm.c:15</div></div>
 <div class="ttc" id="afsm_8h_html_adf5d33835fdc6d5812bf9b13ad8a18d4"><div class="ttname"><a href="fsm_8h.html#adf5d33835fdc6d5812bf9b13ad8a18d4">previous_state</a></div><div class="ttdeci">volatile TrafficLightState previous_state</div><div class="ttdoc">Global variable: Previous State of FSM.</div><div class="ttdef"><b>Definition</b> fsm.c:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_98ff7954eb3842da01d2ae02361edfa5.html">app</a></li><li class="navelem"><a class="el" href="fsm_8h.html">fsm.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>
